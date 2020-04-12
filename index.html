@@ -1,15 +1,1509 @@
-<!doctype html5>
 <html>
-<head>
-  <meta charset="utf-8">
-  <meta name="description" content="오토바이 수리는 바리에서">
-  <meta name="keywords" content="motorcycle,repair">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-  <title>바리</title>
-</head>
-<body>
-  <h1>바리</h1>
-  <img src="motorcycle.jpg" style="width: 400px;height: auto;">
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>바리</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default%2CNodeList.prototype.forEach"></script>
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,400,700,900);
+
+      * {
+        box-sizing: border-box;
+      }
+
+      button {
+        font-family: "Noto Sans KR", sans-serif;
+      }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: "Noto Sans KR", sans-serif;
+      }
+
+      section {
+        overflow: hidden;
+        text-align: center;
+      }
+
+      #header {
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        transition: all 1s;
+      }
+
+      .download-zone {
+        z-index: 100;
+      }
+
+      #header .container {
+        padding: 13px 20px;
+      }
+
+      #logo img {
+        width: 90px;
+      }
+
+      @media (min-width: 920px) {
+        #header {
+          text-align: center;
+        }
+
+        .container {
+          width: 920px;
+          text-align: left;
+          display: inline-block;
+          position: relative;
+        }
+      }
+
+      #section1 {
+        background: url(./images/mobileBack.png) center -30% no-repeat;
+        background-size: 100%;
+        height: 100vh;
+        position: relative;
+      }
+
+      #section1 .main-image {
+        background: url(./images/ic_m_main_img_1.png) no-repeat;
+        background-size: 100%;
+        height: 700px;
+        width: 40%;
+        position: absolute;
+        right: 0;
+        top: 20%;
+      }
+
+      #section1 .download-zone {
+        padding: 0 35px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 36px;
+      }
+
+      #section1 .download {
+        background: #ee191f;
+        border-radius: 3px;
+        color: white;
+        font-size: 16px;
+        border: none;
+        width: 100%;
+        line-height: 24px;
+        padding: 8px 0 10px;
+      }
+
+      #section1 .download p {
+        opacity: 0.55;
+        padding: 0;
+        font-size: 10px;
+        margin: 0;
+        line-height: 15px;
+      }
+
+      #section1 .down-zone {
+        padding: 15px 0 12px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      #section1 .stores {
+        display: none;
+      }
+
+      #section1 .down-zone img {
+        width: 15px;
+      }
+
+      @media (min-width: 920px) {
+        #section1 {
+          height: 960px;
+          background: url(./images/ic_main.png) center top no-repeat;
+          background-size: 1920px;
+        }
+
+        #section1 .main-image {
+          background: url(./images/ic_main_img_1.png) no-repeat;
+          background-size: 100%;
+          width: 448px;
+          height: 691px;
+          position: absolute;
+          right: 0;
+          top: 186px;
+        }
+
+        #section1 .stores {
+          display: block;
+          color: #929292;
+          font-size: 14px;
+          line-height: 20px;
+          letter-spacing: -0.28px;
+          position: absolute;
+          top: 709px;
+        }
+
+        #section1 .stores img {
+          width: 205px;
+          margin-right: 13px;
+          margin-bottom: 8px;
+        }
+      }
+
+      #section2 {
+        position: relative;
+        background: #f8f8f8;
+        height: 100vh;
+      }
+
+      #section2 .main-image {
+        width: 155px;
+        position: absolute;
+        bottom: 150px;
+        right: 41px;
+      }
+
+      #section2 .intro {
+        text-align: left;
+        padding-top: 130px;
+        padding-left: 35px;
+      }
+
+      #section2 .intro img {
+        width: 22px;
+        margin-bottom: 10px;
+      }
+
+      #section2 .intro h2 {
+        margin: 0;
+        font-size: 26px;
+        line-height: 35px;
+        font-weight: bold;
+        letter-spacing: -1.04px;
+      }
+
+      #section2 .intro .ask {
+        font-size: 26px;
+        line-height: 35px;
+        font-weight: lighter;
+        letter-spacing: -1.04px;
+      }
+
+      #section2 .intro .baree {
+        font-size: 18px;
+        line-height: 38px;
+        letter-spacing: -0.36px;
+        color: #19205d;
+        margin-top: 24px;
+      }
+
+      #section2 .download-zone {
+        padding: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      #section2 .download {
+        background: #ee191f;
+        border-radius: 3px;
+        color: white;
+        font-size: 16px;
+        border: none;
+        width: 100%;
+        line-height: 24px;
+        padding: 8px 0 10px;
+      }
+
+      #section2 .download p {
+        opacity: 0.55;
+        padding: 0;
+        font-size: 10px;
+        margin: 0;
+        line-height: 15px;
+      }
+
+      #section2 .down-zone {
+        padding: 15px 0 12px;
+        position: absolute;
+        bottom: 57px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      #section2 .down-zone img {
+        width: 15px;
+      }
+
+      @media (min-width: 920px) {
+        #section2 {
+          height: 560px;
+        }
+
+        #section2 .intro {
+          padding-top: 180px;
+          padding-left: 0;
+        }
+
+        #section2 .intro h2 {
+          margin: 0;
+          font-size: 38px;
+          line-height: 56px;
+          font-weight: bold;
+          letter-spacing: -1.52px;
+        }
+
+        #section2 .intro .ask {
+          font-size: 30px;
+          line-height: 45px;
+          font-weight: lighter;
+          letter-spacing: -0.68px;
+        }
+
+        #section2 .intro .baree {
+          font-size: 26px;
+          line-height: 38px;
+          letter-spacing: -0.52px;
+        }
+
+        #section2 .main-image {
+          width: 160px;
+          position: absolute;
+          top: 170px;
+          bottom: auto;
+          right: 20px;
+        }
+      }
+
+      #section3 {
+        position: relative;
+        background: #f8f8f8;
+        height: 100vh;
+      }
+
+      #section3 .main-image {
+        width: 237px;
+        position: absolute;
+        bottom: 167px;
+        right: 37px;
+      }
+
+      #section3 .intro {
+        text-align: left;
+        padding-top: 130px;
+        padding-left: 35px;
+      }
+
+      #section3 .intro img {
+        width: 22px;
+        margin-bottom: 10px;
+      }
+
+      #section3 .intro h2 {
+        margin: 0;
+        font-size: 26px;
+        line-height: 35px;
+        font-weight: lighter;
+        letter-spacing: -1.04px;
+      }
+
+      #section3 .intro .ask {
+        font-size: 26px;
+        line-height: 35px;
+        font-weight: bold;
+        letter-spacing: -1.04px;
+      }
+
+      #section3 .intro .baree {
+        margin: 0;
+        font-size: 18px;
+        line-height: 38px;
+        letter-spacing: -0.36px;
+        color: #19205d;
+      }
+
+      #section3 .download-zone {
+        padding: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      #section3 .download {
+        background: #ee191f;
+        border-radius: 3px;
+        color: white;
+        font-size: 16px;
+        border: none;
+        width: 100%;
+        line-height: 24px;
+        padding: 8px 0 10px;
+      }
+
+      #section3 .download p {
+        opacity: 0.55;
+        padding: 0;
+        font-size: 10px;
+        margin: 0;
+        line-height: 15px;
+      }
+
+      #section3 .down-zone {
+        padding: 15px 0 12px;
+        position: absolute;
+        bottom: 57px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      #section3 .down-zone img {
+        width: 15px;
+      }
+
+      @media (min-width: 920px) {
+        #section3 {
+          height: 560px;
+          background: white;
+        }
+
+        #section3 .intro {
+          padding-top: 180px;
+          float: right;
+          position: relative;
+          right: 20%;
+        }
+
+        #section3 .intro h2 {
+          margin: 0;
+          font-size: 38px;
+          line-height: 56px;
+          font-weight: bold;
+          letter-spacing: -1.52px;
+        }
+
+        #section3 .intro .ask {
+          font-size: 30px;
+          line-height: 45px;
+          font-weight: lighter;
+          letter-spacing: -0.68px;
+        }
+
+        #section3 .main-image {
+          width: 341px;
+          position: absolute;
+          top: 100px;
+          bottom: auto;
+          right: auto;
+          left: 0;
+        }
+      }
+
+      #section4 {
+        background: #0e0f31;
+        height: 100vh;
+        text-align: center;
+        position: relative;
+      }
+
+      #section4 .intro {
+        padding-top: 130px;
+        position: relative;
+        display: inline-block;
+        text-align: left;
+        margin-bottom: 23px;
+      }
+
+      #section4 .intro img {
+        width: 22px;
+        margin-bottom: 10px;
+      }
+
+      #section4 .intro h2 {
+        margin: 0;
+        font-size: 26px;
+        color: white;
+        line-height: 35px;
+        letter-spacing: -1.04px;
+        font-weight: bold;
+      }
+
+      #section4 .intro h2 .light {
+        font-weight: normal;
+        opacity: 0.6;
+      }
+
+      #section4 .tab-image {
+        background: url(./images/ic_m_main_img_2.png) center top no-repeat;
+        background-size: 340px;
+        height: 300px;
+      }
+
+      #section4 .tab-zone {
+        padding-top: 35px;
+        height: 235px;
+        bottom: 57px;
+        color: white;
+        font-size: 14px;
+        line-height: 20px;
+      }
+
+      #section4 .tab {
+        width: calc(100% / 3 - 3px);
+        color: #8d909e;
+        display: inline-block;
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 30px;
+        cursor: pointer;
+      }
+
+      #section4 .tab-text {
+        padding-bottom: 8px;
+        display: inline-block;
+        width: 60px;
+        line-height: 24px;
+        border-bottom: 3px solid transparent;
+      }
+
+      #section4 .active .tab-text {
+        color: white;
+        border-bottom: 3px solid white;
+      }
+
+      #section4 .download-zone {
+        padding: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      #section4 .download {
+        background: #ee191f;
+        border-radius: 3px;
+        color: white;
+        font-size: 16px;
+        border: none;
+        width: 100%;
+        line-height: 24px;
+        padding: 8px 0 10px;
+      }
+
+      #section4 .download p {
+        opacity: 0.55;
+        padding: 0;
+        font-size: 10px;
+        margin: 0;
+        line-height: 15px;
+      }
+
+      #section4 .down-zone {
+        padding: 15px 0 12px;
+        position: absolute;
+        bottom: 57px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      #section4 .down-zone img {
+        width: 15px;
+      }
+
+      @media (min-width: 920px) {
+        #section4 {
+          height: 960px;
+        }
+
+        #section4 .intro {
+          padding-top: 342px;
+        }
+
+        #section4 .intro h2 {
+          margin: 0;
+          font-size: 38px;
+          line-height: 56px;
+          font-weight: bold;
+          letter-spacing: -1.52px;
+        }
+
+        #section4 .tab-image {
+          background: url(./images/ic_main_img_5.png) center top no-repeat;
+          background-size: 448px;
+          float: right;
+          width: 448px;
+          height: 682px;
+          margin-top: 171px;
+        }
+
+        #section4 .tab-zone {
+          width: 400px;
+        }
+
+        #section4 .tab {
+          text-align: left;
+        }
+
+        #section4 .main-image {
+          width: 341px;
+          position: absolute;
+          top: 100px;
+          bottom: auto;
+          right: auto;
+          left: 0;
+        }
+      }
+
+      #section5 {
+        position: relative;
+        height: 100vh;
+        text-align: center;
+      }
+
+      #section5 .intro {
+        padding-top: 130px;
+        position: relative;
+        display: inline-block;
+        text-align: left;
+        margin-bottom: 23px;
+      }
+
+      #section5 .intro img {
+        width: 22px;
+        margin-bottom: 10px;
+      }
+
+      #section5 .intro h2 {
+        margin: 0;
+        font-size: 26px;
+        line-height: 35px;
+        font-weight: bold;
+        letter-spacing: -1.04px;
+      }
+
+      #section5 .intro .ask {
+        font-size: 26px;
+        line-height: 35px;
+        font-weight: lighter;
+        letter-spacing: -1.04px;
+      }
+
+      #section5 .image-changer {
+        background: url(./images/ic_m_main_img_5.png) center top no-repeat;
+        background-size: 340px;
+        height: 700px;
+      }
+
+      #section5 .download-zone {
+        padding: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      #section5 .download {
+        background: #ee191f;
+        border-radius: 3px;
+        color: white;
+        font-size: 16px;
+        border: none;
+        width: 100%;
+        line-height: 24px;
+        padding: 8px 0 10px;
+      }
+
+      #section5 .download p {
+        opacity: 0.55;
+        padding: 0;
+        font-size: 10px;
+        margin: 0;
+        line-height: 15px;
+      }
+
+      #section5 .down-zone {
+        padding: 15px 0 12px;
+        position: absolute;
+        bottom: 57px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      #section5 .down-zone img {
+        width: 15px;
+      }
+
+      @media (min-width: 920px) {
+        #section5 {
+          height: 434px;
+          background: white;
+        }
+
+        #section5 .intro {
+          padding-top: 180px;
+        }
+
+        #section5 .image-changer {
+          width: 448px;
+          height: 519px;
+          float: left;
+          position: absolute;
+          top: 41px;
+          bottom: auto;
+          right: 0;
+        }
+      }
+
+      #section6 {
+        position: relative;
+        height: 100vh;
+        background: #f8f8f8;
+      }
+
+      #section6 .intro {
+        text-align: left;
+        padding-top: 130px;
+        padding-left: 35px;
+      }
+
+      #section6 .intro img {
+        width: 22px;
+        margin-bottom: 10px;
+      }
+
+      #section6 .intro h2 {
+        margin: 0;
+        font-size: 26px;
+        line-height: 35px;
+        font-weight: lighter;
+        letter-spacing: -1.04px;
+      }
+
+      #section6 .intro .ask {
+        font-size: 26px;
+        line-height: 35px;
+        font-weight: bold;
+        letter-spacing: -1.04px;
+      }
+
+      #section6 .intro .detail {
+        margin-top: 8px;
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: -0.48px;
+        color: #c2c2c2;
+      }
+
+      #section6 .image-changer {
+        background: url(./images/ic_m_main_img_8.png) center top no-repeat;
+        background-size: 340px;
+        height: 700px;
+      }
+
+      #section6 .download-zone {
+        padding: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      #section6 .download {
+        background: #ee191f;
+        border-radius: 3px;
+        color: white;
+        font-size: 16px;
+        border: none;
+        width: 100%;
+        line-height: 24px;
+        padding: 8px 0 10px;
+      }
+
+      #section6 .download p {
+        opacity: 0.55;
+        padding: 0;
+        font-size: 10px;
+        margin: 0;
+        line-height: 15px;
+      }
+
+      #section6 .down-zone {
+        padding: 15px 0 12px;
+        position: absolute;
+        bottom: 57px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      #section6 .down-zone img {
+        width: 15px;
+      }
+
+      @media (min-width: 920px) {
+        #section6 {
+          height: 434px;
+        }
+
+        #section6 .intro {
+          padding-top: 180px;
+          float: right;
+          position: relative;
+          right: 20%;
+        }
+
+        #section6 .image-changer {
+          width: 448px;
+          height: 519px;
+          float: left;
+          position: absolute;
+          top: 41px;
+          bottom: auto;
+          right: auto;
+          left: 0;
+        }
+      }
+
+      #section7 {
+        position: relative;
+        background: url(./images/ic_m_bikeapp.png) no-repeat;
+        background-size: 100%;
+        height: 100vh;
+      }
+
+      #section7 .download-zone {
+        padding: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      #section7 .download {
+        background: #ee191f;
+        border-radius: 3px;
+        color: white;
+        font-size: 16px;
+        border: none;
+        width: 100%;
+        line-height: 24px;
+        padding: 8px 0 10px;
+      }
+
+      #section7 .download p {
+        opacity: 0.55;
+        padding: 0;
+        font-size: 10px;
+        margin: 0;
+        line-height: 15px;
+      }
+
+      #section7 .down-zone {
+        padding: 15px 0 12px;
+        position: absolute;
+        bottom: 57px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      #section7 .down-zone img {
+        width: 15px;
+      }
+
+      @media (min-width: 960px) {
+        #section7 {
+          height: 960px;
+          background: url(./images/ic_bikeapp.png) center top no-repeat;
+          background-size: 1920px;
+        }
+      }
+
+      #section8 {
+        height: 100vh;
+        background: #f8f8f8;
+        position: relative;
+      }
+
+      #section8 .main-image {
+        width: 130px;
+        position: absolute;
+        top: 163px;
+        right: 38px;
+      }
+
+      #section8 .intro {
+        text-align: left;
+        padding-top: 310px;
+        padding-left: 35px;
+      }
+
+      #section8 .intro img {
+        width: 22px;
+        margin-bottom: 10px;
+      }
+
+      #section8 .intro h2 {
+        margin: 0;
+        font-size: 26px;
+        line-height: 35px;
+        font-weight: bold;
+        letter-spacing: -1.04px;
+      }
+
+      #section8 .intro .ask {
+        font-size: 17px;
+        line-height: 25px;
+        font-weight: lighter;
+        letter-spacing: -0.68px;
+      }
+
+      #section8 .intro .detail {
+        margin-top: 23px;
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: -0.48px;
+        color: #929292;
+      }
+
+      #section8 .partners-zone {
+        padding: 21px 35px;
+      }
+
+      #section8 .partners-link {
+        display: block;
+        color: white;
+        background: #0e0f31;
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 16px;
+        line-height: 24px;
+        width: 100%;
+        padding: 14px;
+        text-align: center;
+      }
+
+      #section8 .download-zone {
+        padding: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      #section8 .download {
+        background: #ee191f;
+        border-radius: 3px;
+        color: white;
+        font-size: 16px;
+        border: none;
+        width: 100%;
+        line-height: 24px;
+        padding: 8px 0 10px;
+      }
+
+      #section8 .download p {
+        opacity: 0.55;
+        padding: 0;
+        font-size: 10px;
+        margin: 0;
+        line-height: 15px;
+      }
+
+      #section8 .down-zone {
+        padding: 15px 0 12px;
+        position: absolute;
+        bottom: 57px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      #section8 .down-zone img {
+        width: 15px;
+      }
+
+      @media (min-width: 920px) {
+        #section8 {
+          height: 560px;
+        }
+
+        #section8 .intro {
+          padding-top: 147px;
+          padding-left: 0;
+        }
+
+        #section8 .intro h2 {
+          margin: 0;
+          font-size: 38px;
+          line-height: 56px;
+          font-weight: bold;
+          letter-spacing: -1.52px;
+        }
+
+        #section8 .intro .ask {
+          font-size: 30px;
+          line-height: 45px;
+          font-weight: lighter;
+          letter-spacing: -0.68px;
+        }
+
+        #section8 .intro .detail {
+          margin-bottom: 40px;
+        }
+
+        #section8 .main-image {
+          width: 165px;
+          position: absolute;
+          top: 223px;
+          right: 0;
+        }
+
+        #section8 .partners-zone {
+          padding: 0;
+        }
+
+        #section8 .partners-link {
+          display: block;
+          color: white;
+          background: #ee191f;
+          font-weight: bold;
+          text-decoration: none;
+          font-size: 16px;
+          line-height: 24px;
+          width: 284px;
+          padding: 14px;
+          text-align: center;
+        }
+      }
+
+      #section9 {
+        height: 100vh;
+        position: relative;
+      }
+
+      #section9 .intro {
+        text-align: left;
+        padding-top: 184px;
+        padding-left: 35px;
+      }
+
+      #section9 .intro img {
+        width: 22px;
+        margin-bottom: 10px;
+      }
+
+      #section9 .intro h2 {
+        margin: 0;
+        font-size: 26px;
+        line-height: 35px;
+        font-weight: bold;
+        letter-spacing: -1.04px;
+      }
+
+      #section9 .intro .detail {
+        font-size: 12px;
+        line-height: 18px;
+        letter-spacing: -0.48px;
+        color: #929292;
+        margin-bottom: 44px;
+      }
+
+      #section9 .contact-zone {
+        text-align: left;
+      }
+
+      #section9 .contact {
+        margin-bottom: 33px;
+        margin-left: 35px;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -0.32px;
+        color: #5d5d5d;
+      }
+
+      #section9 .contact img {
+        margin-right: 11px;
+        vertical-align: middle;
+        width: 46px;
+      }
+
+
+      #section9 .download-zone {
+        padding: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      #section9 .download {
+        background: #ee191f;
+        border-radius: 3px;
+        color: white;
+        font-size: 16px;
+        border: none;
+        width: 100%;
+        line-height: 24px;
+        padding: 8px 0 10px;
+      }
+
+      #section9 .download p {
+        opacity: 0.55;
+        padding: 0;
+        font-size: 10px;
+        margin: 0;
+        line-height: 15px;
+      }
+
+      #section9 .down-zone {
+        padding: 15px 0 12px;
+        position: absolute;
+        bottom: 57px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      #section9 .down-zone img {
+        width: 15px;
+      }
+
+      @media (min-width: 920px) {
+        #section9 {
+          height: 560px;
+        }
+
+        #section9 .intro {
+          padding-top: 228px;
+          padding-left: 0;
+          display: inline-block;
+        }
+
+        #section9 .intro h2 {
+          margin: 0;
+          font-size: 38px;
+          line-height: 56px;
+          font-weight: bold;
+          letter-spacing: -1.52px;
+        }
+
+        #section9 .intro .ask {
+          font-size: 30px;
+          line-height: 45px;
+          font-weight: lighter;
+          letter-spacing: -0.68px;
+        }
+
+        #section9 .intro .detail {
+          font-size: 16px;
+          line-height: 24px;
+          margin-bottom: 40px;
+        }
+
+        #section9 .contact-zone {
+          float: right;
+          position: relative;
+          right: 20%;
+          margin-top: 179px;
+        }
+      }
+
+      #footer {
+        background: #f8f8f8;
+        color: #929292;
+        padding: 57px 35px;
+        text-align: center;
+      }
+
+      #footer .container {
+        text-align: left;
+      }
+
+      #footer img {
+        width: 90px;
+        margin-bottom: 25px;
+      }
+
+      #footer .text {
+        font-size: 10px;
+        line-height: 16px;
+        margin-bottom: 21px;
+      }
+
+      #footer a {
+        float: right;
+        font-size: 10px;
+        line-height: 16px;
+        margin: 3px;
+        color: #929292;
+        text-decoration: underline;
+      }
+
+      @media (min-width: 920px) {
+        #footer .text {
+          font-size: 12px;
+          line-height: 19px;
+        }
+
+        .download-zone, .down-zone {
+          display: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div class="container">
+        <div id="logo">
+          <img src="./images/ic_m_logo_w.png" alt="BAREE">
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      <section id="section1">
+        <div class="container">
+          <div class="download-zone">
+            <a href="">
+              <button class="download">
+                <b>바리 앱 다운로드</b>
+                <br>
+                <p>현재 안드로이드만 이용 가능합니다.</p>
+              </button>
+            </a>
+          </div>
+          <div class="main-image"></div>
+          <div class="stores">
+            <div>
+              <a href=""><img src="./images/ic_google_play.png" alt="구글 플레이스토어"></a>
+            </div>
+            <div>
+              현재 안드로이드만 이용 가능합니다.
+            </div>
+          </div>
+          <div class="down-zone">
+            <img src="./images/ic_m_arrow.png" alt="아래로">
+          </div>
+        </div>
+      </section>
+      <section id="section2">
+        <div class="container">
+          <div class="intro">
+            <img src="./images/ic_m_label.png" alt="">
+            <h2>내 주변 괜찮은 정비소,</h2>
+            <div class="ask">찾고 계신가요?</div>
+            <div class="baree">"바리에는 다 나와요"</div>
+          </div>
+          <img class="main-image" src="./images/ic_m_repairshop.png" alt="수리 헬멧">
+          <div class="down-zone">
+            <img src="./images/ic_m_arrow.png" alt="아래로">
+          </div>
+          <div class="download-zone">
+            <a href="">
+              <button class="download">
+                <b>바리 앱 다운로드</b>
+                <br>
+                <p>현재 안드로이드만 이용 가능합니다.</p>
+              </button>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="section3">
+        <div class="container">
+          <div class="intro">
+            <img src="./images/ic_m_label.png" alt="">
+            <h2>내 주변 정비소</h2>
+            <div class="ask">가격과 후기 보고</div>
+            <div class="ask">예약까지 한 번에!</div>
+          </div>
+          <img class="main-image" src="./images/ic_m_repairmap.png" alt="후기">
+          <div class="down-zone">
+            <img src="./images/ic_m_arrow.png" alt="아래로">
+          </div>
+          <div class="download-zone">
+            <a href="">
+              <button class="download">
+                <b>바리 앱 다운로드</b>
+                <br>
+                <p>현재 안드로이드만 이용 가능합니다.</p>
+              </button>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="section4">
+        <div class="container">
+          <div class="intro">
+            <img src="./images/ic_m_label.png" alt="">
+            <h2>간편하게 <span class="light">수리 맡기세요.</span></h2>
+          </div>
+          <div class="tab-image"></div>
+          <div class="tab-zone">
+            <div class="tab active">
+              <div class="tab-text">사진찍고</div>
+            </div>
+            <div class="tab">
+              <div class="tab-text">상담하면</div>
+            </div>
+            <div class="tab">
+              <div class="tab-text">예약완료</div>
+            </div>
+            <div class="tab-detail">수리 견적 요청,<br>사진 한 장이면 충분합니다.</div>
+          </div>
+          <div class="down-zone">
+            <img src="./images/ic_m_arrow_w.png" alt="아래로">
+          </div>
+          <div class="download-zone">
+            <a href="">
+              <button class="download">
+                <b>바리 앱 다운로드</b>
+                <br>
+                <p>현재 안드로이드만 이용 가능합니다.</p>
+              </button>
+            </a>
+          </div>
+        </div>
+      </section>
+      <script>
+        document.querySelectorAll('#section4 .tab').forEach(function (tab, i) {
+          tab.addEventListener('click', function () {
+            var image = document.querySelector('#section4 .tab-image');
+            var detail = document.querySelector('#section4 .tab-detail');
+            document.querySelectorAll('#section4 .tab').forEach(function (tab) {
+              tab.className = 'tab';
+            });
+            if (i === 0) {
+              tab.className = 'tab active';
+              if (window.innerWidth >= 920) {
+                image.style.background = 'url(./images/ic_main_img_5.png) center top no-repeat';
+                image.style.backgroundSize = '448px';
+              } else {
+                image.style.background = 'url(./images/ic_m_main_img_2.png) center top no-repeat';
+                image.style.backgroundSize = '340px';
+              }
+              detail.innerHTML = '수리 견적 요청,<br>사진 한 장이면 충분합니다.';
+            }
+            if (i === 1) {
+              tab.className = 'tab active';
+              if (window.innerWidth >= 920) {
+                image.style.background = 'url(./images/ic_main_img_7.png) center top no-repeat';
+                image.style.backgroundSize = '448px';
+              } else {
+                image.style.background = 'url(./images/ic_m_main_img_3.png) center top no-repeat';
+                image.style.backgroundSize = '340px';
+              }
+              detail.innerHTML = '예약 시간,기타 문의는<br>채팅으로 이야기하세요.';
+            }
+            if (i === 2) {
+              tab.className = 'tab active';
+              if (window.innerWidth >= 920) {
+                image.style.background = 'url(./images/ic_main_img_2.png) center top no-repeat';
+                image.style.backgroundSize = '448px';
+              } else {
+                image.style.background = 'url(./images/ic_m_main_img_4.png) center top no-repeat';
+                image.style.backgroundSize = '340px';
+              }
+              detail.innerHTML = '원하는 시간,요청에 맞춰<br>예약이 완료됩니다.';
+            }
+          });
+        });
+      </script>
+      <section id="section5">
+        <div class="container">
+          <div class="intro">
+            <img src="./images/ic_m_label.png" alt="">
+            <h2>내 주변 6개 정비소</h2>
+            <div class="ask">비교견적 후기 보고</div>
+            <div class="ask">수리 맡기세요</div>
+          </div>
+          <div class="image-changer"></div>
+          <div class="down-zone">
+            <img src="./images/ic_m_arrow.png" alt="아래로">
+          </div>
+          <div class="download-zone">
+            <a href="">
+              <button class="download">
+                <b>바리 앱 다운로드</b>
+                <br>
+                <p>현재 안드로이드만 이용 가능합니다.</p>
+              </button>
+            </a>
+          </div>
+        </div>
+      </section>
+      <script>
+        var image = 5;
+        var target = document.querySelector('#section5 .image-changer');
+        setInterval(function () {
+          if (image === 5) {
+            target.style.background = 'url(./images/ic_m_main_img_6.png) center top no-repeat';
+            target.style.backgroundSize = '340px';
+            image++;
+          } else if (image === 6) {
+            target.style.background = 'url(./images/ic_m_main_img_7.png) center top no-repeat';
+            target.style.backgroundSize = '340px';
+            image++;
+          } else if (image === 7) {
+            target.style.background = 'url(./images/ic_m_main_img_5.png) center top no-repeat';
+            target.style.backgroundSize = '340px';
+            image = 5;
+          }
+        }, 1000);
+      </script>
+      <section id="section6">
+        <div class="container">
+          <div class="intro">
+            <img src="./images/ic_m_label.png" alt="">
+            <h2>XX개 정비소와 함께합니다.</h2>
+            <div class="ask">현재 관악구, 동작구 내</div>
+            <div class="detail">(서비스 지역은 지속적으로 확장됩니다)</div>
+          </div>
+          <div class="image-changer"></div>
+          <div class="down-zone">
+            <img src="./images/ic_m_arrow.png" alt="아래로">
+          </div>
+          <div class="download-zone">
+            <a href="">
+              <button class="download">
+                <b>바리 앱 다운로드</b>
+                <br>
+                <p>현재 안드로이드만 이용 가능합니다.</p>
+              </button>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="section7">
+        <div class="container">
+          <div class="down-zone">
+            <img src="./images/ic_m_arrow.png" alt="아래로">
+          </div>
+          <div class="download-zone">
+            <a href="">
+              <button class="download">
+                <b>바리 앱 다운로드</b>
+                <br>
+                <p>현재 안드로이드만 이용 가능합니다.</p>
+              </button>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section id="section8">
+        <div class="container">
+          <img class="main-image" src="./images/ic_m_mechanic.png" />
+          <div class="intro">
+            <img src="./images/ic_m_label.png" alt="">
+            <div class="ask">정비소 사장님이신가요?</div>
+            <h2>바리로 새로운 고객을 만나보세요.</h2>
+            <div class="detail">현재 안드로이드 유저만 사용 가능합니다.<br> 빠른 시일 내에 iOS도 추가하도록 노력하겠습니다.</div>
+          </div>
+          <div class="partners-zone">
+            <a href="" class="partners-link">바리 입점 신청하기</a>
+          </div>
+          <div class="down-zone">
+            <img src="./images/ic_m_arrow.png" alt="아래로">
+          </div>
+          <div class="download-zone">
+            <a href="">
+              <button class="download">
+                <b>바리 앱 다운로드</b>
+                <br>
+                <p>현재 안드로이드만 이용 가능합니다.</p>
+              </button>
+            </a>
+          </div>
+        </div>
+      </section>
+      </section>
+      <section id="section9">
+        <div class="container">
+          <div class="intro">
+            <img src="./images/ic_m_label.png" alt="">
+            <h2>무엇이든 물어보세요</h2>
+            <div class="detail">평일 10:00 ~ 18:00</div>
+          </div>
+          <div class="contact-zone">
+            <div class="contact">
+              <img src="./images/ic_m_ask_call.png" alt="전화">
+              <span>010-4490-2822</span>
+            </div>
+            <div class="contact">
+              <img src="./images/ic_m_ask_mail.png" alt="이메일">
+              <span>customer@baree.net</span>
+            </div>
+            <div class="contact">
+              <img src="./images/ic_m_ask_kakao.png" alt="카카오">
+              <span>카카오톡 플러스 친구 <b style="color: black">@바리톡</b></span>
+            </div>
+          </div>
+          <div class="down-zone">
+            <img src="./images/ic_m_arrow.png" alt="아래로">
+          </div>
+          <div class="download-zone">
+            <a href="">
+              <button class="download">
+                <b>바리 앱 다운로드</b>
+                <br>
+                <p>현재 안드로이드만 이용 가능합니다.</p>
+              </button>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div id="footer">
+      <div class="container">
+        <img src="./images/ic_m_logo_g.png" alt="BAREE">
+        <div class="text">바리코퍼레이션㈜ | 대표자: 오경담 | 사업자등록번호: 269-81-01780 | 주소: 서울특별시 관악구 관악로 158 BS타워 2층 | 고객센터: 1668-1393
+          (평일
+          10:00-18:00) 고객문의: customer@baree.net
+        </div>
+        <div class="text">본 사이트의 모든 콘텐츠는 저작권법의 보호를 받는 바, 무단 전재, 복사, 배포를 금합니다.</div>
+        <div>
+          <a href="./files/이용약관.html" target="_blank">이용약관</a>
+          <a href="./files/개인정보처리방침.html" target="_blank">개인정보처리방침</a>
+          <a href="./files/위치정보서비스-이용약관.html" target="_blank">위치정보서비스 이용약관</a>
+        </div>
+      </div>
+    </div>
+    <script>
+      window.addEventListener('scroll', function () {
+        if ((document.documentElement.scrollTop || window.scrollY || 0) > window.innerHeight) {
+          document.querySelector('#header').style.background = 'white';
+          document.querySelector('#header #logo img').src = './images/ic_m_logo.png';
+        } else {
+          document.querySelector('#header').style.background = 'transparent';
+          document.querySelector('#header #logo img').src = './images/ic_m_logo_w.png';
+        }
+      });
+      document.querySelectorAll('.down-zone').forEach(function (zone) {
+        zone.addEventListener('click', function () {
+          var currentPage = Math.floor((document.documentElement.scrollTop || window.scrollY || 0) / window.innerHeight);
+          console.log(currentPage, (document.documentElement.scrollTop || window.scrollY || 0), window.innerHeight);
+          window.scrollTo(0, window.innerHeight * (currentPage + 1));
+        });
+      });
+    </script>
+  </body>
 </html>
