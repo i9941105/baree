@@ -1,45 +1,8 @@
-<html>
-  <head>
-    
-    <meta name="naver-site-verification" content="f2a43282fca730b52eae0d63d079ec854bfc50f5" />
-    
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-161696477-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-161696477-1');
-</script>
-    
-    
-    <!-- Global site tag (gtag.js) - Google Ads: 656885889 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-656885889"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-656885889');
-</script>
-
-
-    
+<html><head>
     <meta charset="UTF-8">
-    <meta name="description" content="오토바이 수리할 땐 바리">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>바리</title>
-    
-    <meta property="og:type" content="website"> 
-    <meta property="og:title" content="바이크 수리할 땐 바리">
-    <meta name="keywords" content="오토바이 수리, 바이크 수리, 오토바이 정비, 바리, baree, 정비소">
-    <meta property="og:description" content="내 주변 정비소 가격과 후기보고 예약까지 한번에">
-    <meta property="og:image" content="https://www.baree.net/images/kakaotalk_url.png">
-    <meta property="og:url" content="https://www.baree.net">
-    
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default%2CNodeList.prototype.forEach"></script>
     <style>
       @import url(https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,400,700,900);
@@ -72,6 +35,36 @@
 
       .download-zone {
         z-index: 100;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 36px;
+        padding: 0 35px;
+        transition: all .5s;
+      }
+
+      .download-zone.scrolled {
+        bottom: 0;
+        padding: 0;
+      }
+
+      .download-zone .download {
+        background: #ee191f;
+        border-radius: 3px;
+        color: white;
+        font-size: 16px;
+        border: none;
+        width: 100%;
+        line-height: 24px;
+        padding: 8px 0 10px;
+      }
+
+      .download-zone .download p {
+        opacity: 0.55;
+        padding: 0;
+        font-size: 10px;
+        margin: 0;
+        line-height: 15px;
       }
 
       #header .container {
@@ -110,33 +103,6 @@
         position: absolute;
         right: 0;
         top: 20%;
-      }
-
-      #section1 .download-zone {
-        padding: 0 35px;
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 36px;
-      }
-
-      #section1 .download {
-        background: #ee191f;
-        border-radius: 3px;
-        color: white;
-        font-size: 16px;
-        border: none;
-        width: 100%;
-        line-height: 24px;
-        padding: 8px 0 10px;
-      }
-
-      #section1 .download p {
-        opacity: 0.55;
-        padding: 0;
-        font-size: 10px;
-        margin: 0;
-        line-height: 15px;
       }
 
       #section1 .down-zone {
@@ -238,33 +204,6 @@
         margin-top: 24px;
       }
 
-      #section2 .download-zone {
-        padding: 0;
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
-
-      #section2 .download {
-        background: #ee191f;
-        border-radius: 3px;
-        color: white;
-        font-size: 16px;
-        border: none;
-        width: 100%;
-        line-height: 24px;
-        padding: 8px 0 10px;
-      }
-
-      #section2 .download p {
-        opacity: 0.55;
-        padding: 0;
-        font-size: 10px;
-        margin: 0;
-        line-height: 15px;
-      }
-
       #section2 .down-zone {
         padding: 15px 0 12px;
         position: absolute;
@@ -364,33 +303,6 @@
         line-height: 38px;
         letter-spacing: -0.36px;
         color: #19205d;
-      }
-
-      #section3 .download-zone {
-        padding: 0;
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
-
-      #section3 .download {
-        background: #ee191f;
-        border-radius: 3px;
-        color: white;
-        font-size: 16px;
-        border: none;
-        width: 100%;
-        line-height: 24px;
-        padding: 8px 0 10px;
-      }
-
-      #section3 .download p {
-        opacity: 0.55;
-        padding: 0;
-        font-size: 10px;
-        margin: 0;
-        line-height: 15px;
       }
 
       #section3 .down-zone {
@@ -517,14 +429,6 @@
         border-bottom: 3px solid white;
       }
 
-      #section4 .download-zone {
-        padding: 0;
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
-
       #section4 .download {
         background: #ee191f;
         border-radius: 3px;
@@ -642,33 +546,6 @@
         height: 700px;
       }
 
-      #section5 .download-zone {
-        padding: 0;
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
-
-      #section5 .download {
-        background: #ee191f;
-        border-radius: 3px;
-        color: white;
-        font-size: 16px;
-        border: none;
-        width: 100%;
-        line-height: 24px;
-        padding: 8px 0 10px;
-      }
-
-      #section5 .download p {
-        opacity: 0.55;
-        padding: 0;
-        font-size: 10px;
-        margin: 0;
-        line-height: 15px;
-      }
-
       #section5 .down-zone {
         padding: 15px 0 12px;
         position: absolute;
@@ -750,33 +627,6 @@
         height: 700px;
       }
 
-      #section6 .download-zone {
-        padding: 0;
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
-
-      #section6 .download {
-        background: #ee191f;
-        border-radius: 3px;
-        color: white;
-        font-size: 16px;
-        border: none;
-        width: 100%;
-        line-height: 24px;
-        padding: 8px 0 10px;
-      }
-
-      #section6 .download p {
-        opacity: 0.55;
-        padding: 0;
-        font-size: 10px;
-        margin: 0;
-        line-height: 15px;
-      }
-
       #section6 .down-zone {
         padding: 15px 0 12px;
         position: absolute;
@@ -820,33 +670,6 @@
         background: url(./images/ic_m_bikeapp.png) no-repeat;
         background-size: 100%;
         height: 100vh;
-      }
-
-      #section7 .download-zone {
-        padding: 0;
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
-
-      #section7 .download {
-        background: #ee191f;
-        border-radius: 3px;
-        color: white;
-        font-size: 16px;
-        border: none;
-        width: 100%;
-        line-height: 24px;
-        padding: 8px 0 10px;
-      }
-
-      #section7 .download p {
-        opacity: 0.55;
-        padding: 0;
-        font-size: 10px;
-        margin: 0;
-        line-height: 15px;
       }
 
       #section7 .down-zone {
@@ -933,33 +756,6 @@
         width: 100%;
         padding: 14px;
         text-align: center;
-      }
-
-      #section8 .download-zone {
-        padding: 0;
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
-
-      #section8 .download {
-        background: #ee191f;
-        border-radius: 3px;
-        color: white;
-        font-size: 16px;
-        border: none;
-        width: 100%;
-        line-height: 24px;
-        padding: 8px 0 10px;
-      }
-
-      #section8 .download p {
-        opacity: 0.55;
-        padding: 0;
-        font-size: 10px;
-        margin: 0;
-        line-height: 15px;
       }
 
       #section8 .down-zone {
@@ -1081,34 +877,6 @@
         width: 46px;
       }
 
-
-      #section9 .download-zone {
-        padding: 0;
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
-
-      #section9 .download {
-        background: #ee191f;
-        border-radius: 3px;
-        color: white;
-        font-size: 16px;
-        border: none;
-        width: 100%;
-        line-height: 24px;
-        padding: 8px 0 10px;
-      }
-
-      #section9 .download p {
-        opacity: 0.55;
-        padding: 0;
-        font-size: 10px;
-        margin: 0;
-        line-height: 15px;
-      }
-
       #section9 .down-zone {
         padding: 15px 0 12px;
         position: absolute;
@@ -1205,38 +973,19 @@
         }
       }
     </style>
-    
-<!-- Facebook Pixel Code -->
-<script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '264798171204699');
-  fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=264798171204699&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Facebook Pixel Code -->
-    
   </head>
   <body>
-    <div id="header">
+    <div id="header" style="background: white;">
       <div class="container">
         <div id="logo">
-          <img src="./images/ic_m_logo_w.png" alt="BAREE">
+          <img src="./images/ic_m_logo.png" alt="BAREE">
         </div>
       </div>
     </div>
     <div id="main">
       <section id="section1">
         <div class="container">
-          <div class="download-zone">
+          <div class="download-zone scrolled">
             <a href="">
               <button class="download">
                 <b>바리 앱 다운로드</b>
@@ -1271,15 +1020,6 @@
           <div class="down-zone">
             <img src="./images/ic_m_arrow.png" alt="아래로">
           </div>
-          <div class="download-zone">
-            <a href="">
-              <button class="download">
-                <b>바리 앱 다운로드</b>
-                <br>
-                <p>현재 안드로이드만 이용 가능합니다.</p>
-              </button>
-            </a>
-          </div>
         </div>
       </section>
       <section id="section3">
@@ -1293,15 +1033,6 @@
           <img class="main-image" src="./images/ic_m_repairmap.png" alt="후기">
           <div class="down-zone">
             <img src="./images/ic_m_arrow.png" alt="아래로">
-          </div>
-          <div class="download-zone">
-            <a href="">
-              <button class="download">
-                <b>바리 앱 다운로드</b>
-                <br>
-                <p>현재 안드로이드만 이용 가능합니다.</p>
-              </button>
-            </a>
           </div>
         </div>
       </section>
@@ -1326,15 +1057,6 @@
           </div>
           <div class="down-zone">
             <img src="./images/ic_m_arrow_w.png" alt="아래로">
-          </div>
-          <div class="download-zone">
-            <a href="">
-              <button class="download">
-                <b>바리 앱 다운로드</b>
-                <br>
-                <p>현재 안드로이드만 이용 가능합니다.</p>
-              </button>
-            </a>
           </div>
         </div>
       </section>
@@ -1390,18 +1112,9 @@
             <div class="ask">비교견적 후기 보고</div>
             <div class="ask">수리 맡기세요</div>
           </div>
-          <div class="image-changer"></div>
+          <div class="image-changer" style="background: url(&quot;./images/ic_m_main_img_6.png&quot;) center top / 340px no-repeat;"></div>
           <div class="down-zone">
             <img src="./images/ic_m_arrow.png" alt="아래로">
-          </div>
-          <div class="download-zone">
-            <a href="">
-              <button class="download">
-                <b>바리 앱 다운로드</b>
-                <br>
-                <p>현재 안드로이드만 이용 가능합니다.</p>
-              </button>
-            </a>
           </div>
         </div>
       </section>
@@ -1436,15 +1149,6 @@
           <div class="down-zone">
             <img src="./images/ic_m_arrow.png" alt="아래로">
           </div>
-          <div class="download-zone">
-            <a href="">
-              <button class="download">
-                <b>바리 앱 다운로드</b>
-                <br>
-                <p>현재 안드로이드만 이용 가능합니다.</p>
-              </button>
-            </a>
-          </div>
         </div>
       </section>
       <section id="section7">
@@ -1452,20 +1156,11 @@
           <div class="down-zone">
             <img src="./images/ic_m_arrow.png" alt="아래로">
           </div>
-          <div class="download-zone">
-            <a href="">
-              <button class="download">
-                <b>바리 앱 다운로드</b>
-                <br>
-                <p>현재 안드로이드만 이용 가능합니다.</p>
-              </button>
-            </a>
-          </div>
         </div>
       </section>
       <section id="section8">
         <div class="container">
-          <img class="main-image" src="./images/ic_m_mechanic.png" />
+          <img class="main-image" src="./images/ic_m_mechanic.png">
           <div class="intro">
             <img src="./images/ic_m_label.png" alt="">
             <div class="ask">정비소 사장님이신가요?</div>
@@ -1478,17 +1173,7 @@
           <div class="down-zone">
             <img src="./images/ic_m_arrow.png" alt="아래로">
           </div>
-          <div class="download-zone">
-            <a href="">
-              <button class="download">
-                <b>바리 앱 다운로드</b>
-                <br>
-                <p>현재 안드로이드만 이용 가능합니다.</p>
-              </button>
-            </a>
-          </div>
         </div>
-      </section>
       </section>
       <section id="section9">
         <div class="container">
@@ -1514,15 +1199,6 @@
           <div class="down-zone">
             <img src="./images/ic_m_arrow.png" alt="아래로">
           </div>
-          <div class="download-zone">
-            <a href="">
-              <button class="download">
-                <b>바리 앱 다운로드</b>
-                <br>
-                <p>현재 안드로이드만 이용 가능합니다.</p>
-              </button>
-            </a>
-          </div>
         </div>
       </section>
     </div>
@@ -1543,7 +1219,13 @@
     </div>
     <script>
       window.addEventListener('scroll', function () {
-        if ((document.documentElement.scrollTop || window.scrollY || 0) > window.innerHeight) {
+        var currentScrollHeight = document.documentElement.scrollTop || window.scrollY || 0;
+        if (currentScrollHeight > 200) {
+          document.querySelector('.download-zone').className = 'download-zone scrolled';
+        } else {
+          document.querySelector('.download-zone').className = 'download-zone';
+        }
+        if (currentScrollHeight > window.innerHeight) {
           document.querySelector('#header').style.background = 'white';
           document.querySelector('#header #logo img').src = './images/ic_m_logo.png';
         } else {
@@ -1559,5 +1241,6 @@
         });
       });
     </script>
-  </body>
-</html>
+  
+
+</body></html>
