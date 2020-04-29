@@ -1042,7 +1042,7 @@
       <section id="section1">
         <div class="container">
           <div class="download-zone scrolled">
-            <a href="">
+            <a href="https://play.google.com/store/apps/details?id=net.baree.bareeuser">
               <button class="download">
                 <b>바리 앱 다운로드</b>
                 <br>
@@ -1059,9 +1059,6 @@
               현재 안드로이드만 이용 가능합니다.
             </div>
           </div>
-          <div class="down-zone">
-            <img src="./images/ic_m_arrow.png" alt="아래로">
-          </div>
         </div>
       </section>
       <section id="section2">
@@ -1073,9 +1070,6 @@
             <div class="baree">"바리에는 다 나와요"</div>
           </div>
           <img class="main-image" src="./images/ic_m_repairshop.png" alt="수리 헬멧">
-          <div class="down-zone">
-            <img src="./images/ic_m_arrow.png" alt="아래로">
-          </div>
         </div>
       </section>
       <section id="section3">
@@ -1087,9 +1081,6 @@
             <div class="ask">예약까지 한 번에!</div>
           </div>
           <img class="main-image" src="./images/ic_m_repairmap.png" alt="후기">
-          <div class="down-zone">
-            <img src="./images/ic_m_arrow.png" alt="아래로">
-          </div>
         </div>
       </section>
       <section id="section4">
@@ -1111,9 +1102,6 @@
             </div>
             <div class="tab-detail">수리 견적 요청,<br>사진 한 장이면 충분합니다.</div>
           </div>
-          <div class="down-zone">
-            <img src="./images/ic_m_arrow_w.png" alt="아래로">
-          </div>
         </div>
       </section>
       <script>
@@ -1127,7 +1115,7 @@
             if (i === 0) {
               tab.className = 'tab active';
               if (window.innerWidth >= 920) {
-                image.style.background = 'url(./images/ic_main_img_5.png) center top no-repeat';
+                image.style.background = 'url(./images/ic_main_img_2.png) center top no-repeat';
                 image.style.backgroundSize = '448px';
               } else {
                 image.style.background = 'url(./images/ic_m_main_img_2.png) center top no-repeat';
@@ -1138,7 +1126,7 @@
             if (i === 1) {
               tab.className = 'tab active';
               if (window.innerWidth >= 920) {
-                image.style.background = 'url(./images/ic_main_img_7.png) center top no-repeat';
+                image.style.background = 'url(./images/ic_main_img_5.png) center top no-repeat';
                 image.style.backgroundSize = '448px';
               } else {
                 image.style.background = 'url(./images/ic_m_main_img_3.png) center top no-repeat';
@@ -1149,7 +1137,7 @@
             if (i === 2) {
               tab.className = 'tab active';
               if (window.innerWidth >= 920) {
-                image.style.background = 'url(./images/ic_main_img_2.png) center top no-repeat';
+                image.style.background = 'url(./images/ic_main_img_7.png) center top no-repeat';
                 image.style.backgroundSize = '448px';
               } else {
                 image.style.background = 'url(./images/ic_m_main_img_4.png) center top no-repeat';
@@ -1169,9 +1157,6 @@
             <div class="ask">수리 맡기세요</div>
           </div>
           <div class="image-changer" style="background: url(&quot;./images/ic_m_main_img_6.png&quot;) center top / 340px no-repeat;"></div>
-          <div class="down-zone">
-            <img src="./images/ic_m_arrow.png" alt="아래로">
-          </div>
         </div>
       </section>
       <script>
@@ -1202,16 +1187,10 @@
             <div class="detail">(서비스 지역은 지속적으로 확장됩니다)</div>
           </div>
           <div class="image-changer"></div>
-          <div class="down-zone">
-            <img src="./images/ic_m_arrow.png" alt="아래로">
-          </div>
         </div>
       </section>
       <section id="section7">
         <div class="container">
-          <div class="down-zone">
-            <img src="./images/ic_m_arrow.png" alt="아래로">
-          </div>
         </div>
       </section>
       <section id="section8">
@@ -1225,9 +1204,6 @@
           </div>
           <div class="partners-zone">
             <a target="_blank" href="https://play.google.com/store/apps/details?id=com.bareepartners" class="partners-link">바리 입점 신청하기</a>
-          </div>
-          <div class="down-zone">
-            <img src="./images/ic_m_arrow.png" alt="아래로">
           </div>
         </div>
       </section>
@@ -1251,9 +1227,6 @@
               <img src="./images/ic_m_ask_kakao.png" alt="카카오">
                 <span>카카오톡 플러스 친구 <a target="_blank" href="https://pf.kakao.com/_sLsBxb"><b style="color: black">@바리톡</b></a></span>
             </div>
-          </div>
-          <div class="down-zone">
-            <img src="./images/ic_m_arrow.png" alt="아래로">
           </div>
         </div>
       </section>
@@ -1289,6 +1262,7 @@
           document.querySelector('#header #logo img').src = './images/ic_m_logo_w.png';
         }
       });
+/*
       document.querySelectorAll('.down-zone').forEach(function (zone) {
         zone.addEventListener('click', function () {
           var currentPage = Math.floor((document.documentElement.scrollTop || window.scrollY || 0) / window.innerHeight);
@@ -1296,6 +1270,7 @@
           window.scrollTo(0, window.innerHeight * (currentPage + 1));
         });
       });
+*/
     </script>
   
 
